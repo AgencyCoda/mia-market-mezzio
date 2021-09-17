@@ -13,5 +13,9 @@ $app->route('/mia-market/product/fetch-by-slug/{slug}', [\Mia\Market\Handler\Pro
 //$app->route('/mia_product/remove/{id}', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_product.remove');
 //$app->route('/mia_product/save', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\SaveHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.save');
 
+$app->route('/mia-market/cart/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.list');
+$app->route('/mia-market/cart/remove/{id}/{child_id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_cart.remove');
+$app->route('/mia-market/cart/add', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\AddHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.add');
+$app->route('/mia-market/cart/minus', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\MinusHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.minus');
 
 ```
