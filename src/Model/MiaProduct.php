@@ -2,6 +2,8 @@
 
 namespace Mia\Market\Model;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 /**
  * Description of Model
  * @property int $id ID of item
@@ -102,6 +104,15 @@ class MiaProduct extends \Illuminate\Database\Eloquent\Model
     public function store()
     {
         return $this->belongsTo(MiaStore::class, 'store_id');
+    }
+    /**
+     * 
+     *
+     * @return HasMany
+     */
+    public function childs()
+    {
+        return $this->hasMany(MiaProductChild::class, 'product_id');
     }
 
 
