@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "175934e06f80bfb8f1c1a8c94bb54a53",
+    "content-hash": "cf067d7dc130ec4b7c249e640b4352f6",
     "packages": [
         {
             "name": "agencycoda/mia-auth-mezzio",
@@ -171,6 +171,43 @@
             ],
             "description": "The library for Mezzio",
             "time": "2021-08-28T13:28:08+00:00"
+        },
+        {
+            "name": "agencycoda/mia-location-mezzio",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agencycoda/mia-location-mezzio.git",
+                "reference": "6366c653f0e364487d3185c039d011e40d055382"
+            },
+            "require": {
+                "agencycoda/mia-core-mezzio": "dev-main",
+                "agencycoda/mia-eloquent-mezzio": "dev-main",
+                "php": "^7.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mia\\Location\\": "src/"
+                }
+            },
+            "scripts": {
+                "serve": [
+                    "php -S 0.0.0.0:8181 -t example/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matias Camiletti",
+                    "homepage": "https://agencycoda.com"
+                }
+            ],
+            "description": "The library for Mezzio",
+            "time": "2021-07-31T18:29:25+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -4776,7 +4813,8 @@
         "agencycoda/mia-core-mezzio": 20,
         "agencycoda/mia-eloquent-mezzio": 20,
         "agencycoda/mia-auth-mezzio": 20,
-        "agencycoda/mia-category-mezzio": 20
+        "agencycoda/mia-category-mezzio": 20,
+        "agencycoda/mia-location-mezzio": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
