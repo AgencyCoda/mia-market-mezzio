@@ -18,4 +18,8 @@ $app->route('/mia-market/cart/remove/{id}/{child_id}', [\Mia\Auth\Handler\AuthHa
 $app->route('/mia-market/cart/add', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\AddHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.add');
 $app->route('/mia-market/cart/minus', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\MinusHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.minus');
 
+$app->route('/mia-market/favorite/toggle/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Favorite\ToggleHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'product_favorite.toggle');
+$app->route('/mia-market/favorite/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Favorite\ListHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'product_favorite.list');
+$app->route('/mia-market/favorite/remove/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Favorite\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'product_favorite.remove');
+
 ```
