@@ -63,6 +63,10 @@ use Mia\Auth\Model\MIAUser;
  */
 class MiaProductReview extends \Illuminate\Database\Eloquent\Model
 {
+    const STATUS_PENDING = 0;
+    const STATUS_APPROVED = 1;
+    const STATUS_CANCELED = 2;
+
     protected $table = 'mia_product_review';
     
     //protected $casts = ['data' => 'array'];
