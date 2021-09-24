@@ -69,6 +69,8 @@ use Mia\Auth\Model\MIAUser;
  */
 class MiaProductQuestion extends \Illuminate\Database\Eloquent\Model
 {
+    use \RecursiveRelationships\Traits\HasRecursiveRelationships;
+
     protected $table = 'mia_product_question';
     
     //protected $casts = ['data' => 'array'];
@@ -79,14 +81,6 @@ class MiaProductQuestion extends \Illuminate\Database\Eloquent\Model
      */
     //public $timestamps = false;
 
-    /**
-    * 
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
-    public function parent()
-    {
-        return $this->belongsTo(MiaProductQuestion::class, 'parent_id');
-    }
     /**
     * 
     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

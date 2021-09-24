@@ -14,7 +14,8 @@
         "agencycoda/mia-eloquent-mezzio": "dev-main",
         "agencycoda/mia-auth-mezzio": "dev-main",
         "agencycoda/mia-category-mezzio": "dev-main",
-        "agencycoda/mia-location-mezzio": "dev-main"
+        "agencycoda/mia-location-mezzio": "dev-main",
+        "paxha/laravel-recursive-relationships": "^1.1"
     },
     "autoload": {
         "psr-4": {
