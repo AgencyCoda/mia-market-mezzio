@@ -3,6 +3,7 @@
 namespace Mia\Market\Handler\Product;
 
 use Mia\Market\Model\MiaProduct;
+use Mia\Market\Model\MiaProductFavorite;
 
 /**
  * Description of FetchHandler
@@ -46,7 +47,18 @@ class FetchHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
         if($item === null){
             return new \Mia\Core\Diactoros\MiaJsonErrorResponse(1, 'This element is not exist.');
         }
+        // Process Data
+        $data = $item->toArray();
+
+        // Verify if user logged
+        $user = $this->getUser($request);
+        if($user !== null && MiaProductFavorite::where('user_id', $user->id)->where('product_id', $itemId)->first()->first() !== null){
+            $data['is_favorite'] = 1;
+        }else {
+            $data['is_favorite'] = 0;
+        }
+
         // Devolvemos respuesta
-        return new \Mia\Core\Diactoros\MiaJsonResponse($item->toArray());
+        return new \Mia\Core\Diactoros\MiaJsonResponse($data);
     }
 }
