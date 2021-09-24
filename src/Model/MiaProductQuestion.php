@@ -71,6 +71,10 @@ class MiaProductQuestion extends \Illuminate\Database\Eloquent\Model
 {
     use \RecursiveRelationships\Traits\HasRecursiveRelationships;
 
+    const STATUS_PENDING = 0;
+    const STATUS_APPROVED = 1;
+    const STATUS_CANCELED = 2;
+
     protected $table = 'mia_product_question';
     
     //protected $casts = ['data' => 'array'];

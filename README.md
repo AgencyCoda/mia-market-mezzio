@@ -13,7 +13,10 @@ $app->route('/mia-market/product/fetch-by-slug/{slug}', [\Mia\Market\Handler\Pro
 //$app->route('/mia_product/remove/{id}', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_product.remove');
 //$app->route('/mia_product/save', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\SaveHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.save');
 $app->route('/mia-market/product/reviews/{id}', [\Mia\Market\Handler\Product\ReviewsHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.reviews');
-$app->route('/mia-market/product/add-review', [\Mia\Market\Handler\Product\AddReviewHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.add_review');
+$app->route('/mia-market/product/add-review', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Product\AddReviewHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.add_review');
+
+$app->route('/mia-market/product/questions/{id}', [\Mia\Market\Handler\Product\QuestionsHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.questions');
+$app->route('/mia-market/product/add-question', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Product\AddQuestionHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.add_question');
 
 $app->route('/mia-market/cart/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.list');
 $app->route('/mia-market/cart/remove/{id}/{child_id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_cart.remove');
