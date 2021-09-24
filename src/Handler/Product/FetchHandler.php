@@ -52,7 +52,7 @@ class FetchHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
 
         // Verify if user logged
         $user = $this->getUser($request);
-        if($user !== null && MiaProductFavorite::where('user_id', $user->id)->where('product_id', $itemId)->first()->first() !== null){
+        if($user !== null && MiaProductFavorite::where('user_id', $user->id)->where('product_id', $itemId)->first() !== null){
             $data['is_favorite'] = 1;
         }else {
             $data['is_favorite'] = 0;
