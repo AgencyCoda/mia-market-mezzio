@@ -132,7 +132,7 @@ class MiaStore extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = 'mia_store';
     
-    //protected $casts = ['data' => 'array'];
+    protected $casts = ['photos' => 'array', 'photo_featured' => 'array'];
     /**
      * Indicates if the model should be timestamped.
      *
