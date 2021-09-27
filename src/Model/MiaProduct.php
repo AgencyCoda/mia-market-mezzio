@@ -3,6 +3,7 @@
 namespace Mia\Market\Model;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Mia\Category\Model\MiaCategory;
 
 /**
  * Description of Model
@@ -97,6 +98,14 @@ class MiaProduct extends \Illuminate\Database\Eloquent\Model
      */
     //public $timestamps = false;
 
+    /**
+    * 
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+    public function category()
+    {
+        return $this->belongsTo(MiaCategory::class, 'category_id');
+    }
     /**
     * 
     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
