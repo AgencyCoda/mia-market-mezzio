@@ -137,7 +137,15 @@ class MiaOrder extends \Illuminate\Database\Eloquent\Model
     {
         return $this->belongsTo(MIAUser::class, 'user_id');
     }
-
+    /**
+     * 
+     *
+     * @return HasMany
+     */
+    public function details()
+    {
+        return $this->hasMany(MiaOrderDetail::class, 'order_id');
+    }
 
     
 }
