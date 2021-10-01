@@ -14,6 +14,7 @@ use Mia\Auth\Model\MIAUser;
  * @property mixed $caption Description for variable
  * @property mixed $amount Description for variable
  * @property mixed $additional Description for variable
+ * @property mixed $shipping Description for variable
  * @property mixed $taxes Description for variable
  * @property mixed $discount Description for variable
  * @property mixed $total Description for variable
@@ -66,6 +67,11 @@ use Mia\Auth\Model\MIAUser;
  * )
  * @OA\Property(
  *  property="taxes",
+ *  type="number",
+ *  description=""
+ * )
+ * @OA\Property(
+ *  property="shipping",
  *  type="number",
  *  description=""
  * )
