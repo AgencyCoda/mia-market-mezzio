@@ -11,7 +11,7 @@ use Mia\Market\Model\MiaStorePermission;
  *
  * @author matiascamiletti
  */
-class StoreOnlyMiddleware extends MiaAuthMiddleware
+class StoreByIdMiddleware extends MiaAuthMiddleware
 {
 
     public function process(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Server\RequestHandlerInterface $handler) : \Psr\Http\Message\ResponseInterface
