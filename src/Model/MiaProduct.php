@@ -91,6 +91,8 @@ class MiaProduct extends \Illuminate\Database\Eloquent\Model
     protected $table = 'mia_product';
     
     protected $casts = ['photos' => 'array'];
+
+    protected $fillable = ['store_id'];
     /**
      * Indicates if the model should be timestamped.
      *
