@@ -21,7 +21,7 @@ class StoreByIdMiddleware extends MiaAuthMiddleware
         // Obtener usuario
         $user = $this->getUser($request);
         // Obtener cuenta del usuario
-        $permission = MiaStorePermission::where('store_id', $storeId)->where('user_id', $user->account_id)->first();
+        $permission = MiaStorePermission::where('store_id', $storeId)->where('user_id', $user->id)->first();
         // Verificar si existe
         if($permission == null){
             return new \Mia\Core\Diactoros\MiaJsonErrorResponse(-100, 'Your store not exist.');
