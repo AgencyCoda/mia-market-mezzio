@@ -12,7 +12,6 @@ $app->route('/mia-market/product/fetch-by-slug/{slug}', [\Mia\Market\Handler\Pro
 $app->route('/mia-market/product/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Product\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.list');
 $app->route('/mia-market/product/save', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class, \Mia\Market\Handler\Product\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.save');
 //$app->route('/mia_product/remove/{id}', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_product.remove');
-//$app->route('/mia_product/save', [\Mia\Auth\Handler\AuthHandler::class, App\Handler\MiaProduct\SaveHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.save');
 $app->route('/mia-market/product/reviews/{id}', [\Mia\Market\Handler\Product\ReviewsHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.reviews');
 $app->route('/mia-market/product/add-review', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Product\AddReviewHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.add_review');
 
@@ -29,6 +28,7 @@ $app->route('/mia-market/favorite/list', [\Mia\Auth\Handler\AuthHandler::class, 
 $app->route('/mia-market/favorite/remove/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Favorite\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'product_favorite.remove');
 
 $app->route('/mia-market/store/fetch/{id}', [\Mia\Market\Handler\Store\FetchHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.fetch');
+$app->route('/mia-market/store/products/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class, \Mia\Market\Handler\Store\ProductsHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.products');
 
 $app->route('/mia-market/order/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Order\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_order.list');
 
