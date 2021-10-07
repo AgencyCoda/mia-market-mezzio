@@ -111,6 +111,13 @@ use Mia\Auth\Model\MIAUser;
  */
 class MiaOrder extends \Illuminate\Database\Eloquent\Model
 {
+    const STATUS_PENDING = 0;
+    const STATUS_CONFIRMED = 1;
+    const STATUS_PAYOUT = 2;
+    const STATUS_SENDED = 3;
+    const STATUS_DELIVERED = 4;
+    const STATUS_CLAIM = 5;
+
     protected $table = 'mia_order';
     
     //protected $casts = ['data' => 'array'];
