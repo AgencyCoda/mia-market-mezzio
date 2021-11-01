@@ -48,6 +48,7 @@ class ToggleHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
             $item = new MiaProductFavorite();
             $item->user_id = $user->id;
             $item->product_id = $itemId;
+            $item->board_id = $this->getParam($request, 'board_id', null);
             $item->save();
         } else {
             $item->delete();
