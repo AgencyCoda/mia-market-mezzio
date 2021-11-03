@@ -93,13 +93,15 @@ class ProductsHandler extends BaseStoreHandler
      */
     public function handle(\Psr\Http\Message\ServerRequestInterface $request): \Psr\Http\Message\ResponseInterface 
     {
+        // Get Current User
+        $user = $this->getUser($request);
         // Init Store
         $this->initStore($request);
         // Configurar query
         $configure = new \Mia\Database\Query\Configure($this, $request);
         $configure->addWhere('store_id', $this->store->id);
         // Obtenemos información
-        $rows = MiaProductRepository::fetchByConfigure($configure);
+        $rows = MiaProductRepository::fetchByConfigure($configure, $user);
         // Devolvemos respuesta
         return new \Mia\Core\Diactoros\MiaJsonResponse($rows->toArray());
     }
