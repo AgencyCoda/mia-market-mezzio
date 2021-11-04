@@ -63,6 +63,8 @@ class SaveHandler extends BaseStoreHandler
         
         try {
             $item->save();
+
+            $this->processChilds($item, $childs);
         } catch (\Exception $exc) {
             return new \Mia\Core\Diactoros\MiaJsonErrorResponse(-2, $exc->getMessage());
         }
