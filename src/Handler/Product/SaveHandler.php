@@ -5,6 +5,7 @@ namespace Mia\Market\Handler\Product;
 use Mia\Core\Helper\StringHelper;
 use Mia\Market\Handler\BaseStoreHandler;
 use Mia\Market\Model\MiaProduct;
+use Mia\Market\Model\MiaProductChild;
 
 /**
  * Description of SaveHandler
@@ -57,6 +58,8 @@ class SaveHandler extends BaseStoreHandler
         $item->photos = $this->getParam($request, 'photos', []);
 
         $childs = $this->getParam($request, 'childs', []);
+
+        $item->stock = $this->processStocks($childs);
         
         try {
             $item->save();
@@ -68,6 +71,29 @@ class SaveHandler extends BaseStoreHandler
         return new \Mia\Core\Diactoros\MiaJsonResponse($item->toArray());
     }
     
+    protected function processChilds($item, $childs)
+    {
+        foreach($childs as $child){
+            $row = MiaProductChild::where('group', $child['group'])->where('product_id', $item->id)->first();
+            if($row === null){
+                $row = new MiaProductChild();
+                $row->product_id = $item->id;
+                $row->group = $child['group'];
+            }
+            $row->stock = $child['stock'];
+            $row->save();
+        }
+    }
+
+    protected function processStocks($childs)
+    {
+        $stock = 0;
+        foreach($childs as $child){
+            $stock += $child['stock'];
+        }
+        return $stock;
+    }
+
     /**
      * 
      * @param \Psr\Http\Message\ServerRequestInterface $request
