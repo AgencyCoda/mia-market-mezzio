@@ -35,4 +35,25 @@ class MiaOrderRepository
 
         return $query->paginate($configure->getLimit(), ['*'], 'page', $configure->getPage());
     }
+    /**
+     * Return total orders
+     *
+     * @param [type] $from
+     * @param [type] $to
+     * @param [type] $status
+     * @return void
+     */
+    public static function totals($from, $to, $status = MiaOrder::STATUS_PAYOUT)
+    {
+        $row = MiaOrder::
+                selectRaw('COUNT(*) as total')
+                ->selectRaw('SUM(total) as sum_total')
+                ->where('status', $status)
+                ->whereRaw('DATE(created_at) >= DATE(?) AND DATE(created_at) <= DATE(?)', [$from, $to])
+                ->first();
+        if($row === null||$row->total == null){
+            return [0, 0];
+        }
+        return [$row->total, $row->sum_total];
+    }
 }

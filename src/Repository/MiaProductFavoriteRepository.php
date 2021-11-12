@@ -34,4 +34,25 @@ class MiaProductFavoriteRepository
 
         return $query->paginate($configure->getLimit(), ['*'], 'page', $configure->getPage());
     }
+
+    /**
+     * Return total
+     *
+     * @param [type] $from
+     * @param [type] $to
+     * @param [type] $status
+     * @return void
+     */
+    public static function totals($from, $to)
+    {
+        $row = \Mia\Market\Model\MiaProductFavorite::
+                selectRaw('COUNT(*) as total')
+                ->selectRaw('SUM(total) as sum_total')
+                ->whereRaw('DATE(created_at) >= DATE(?) AND DATE(created_at) <= DATE(?)', [$from, $to])
+                ->first();
+        if($row === null||$row->total == null){
+            return [0, 0];
+        }
+        return [$row->total, $row->sum_total];
+    }
 }
