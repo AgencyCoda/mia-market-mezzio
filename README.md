@@ -29,6 +29,7 @@ $app->route('/mia-market/favorite/remove/{id}', [\Mia\Auth\Handler\AuthHandler::
 
 $app->route('/mia-market/store/fetch/{id}', [\Mia\Market\Handler\Store\FetchHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.fetch');
 $app->route('/mia-market/store/products/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class, \Mia\Market\Handler\Store\ProductsHandler::class], ['GET', 'POST', 'OPTIONS', 'HEAD'], 'mia_store.products');
+$app->route('/mia-market/store/save', [\Mia\Auth\Handler\AuthHandler::class, new \Mia\Auth\Middleware\MiaRoleAuthMiddleware([MIAUser::ROLE_ADMIN]),\Mia\Market\Handler\Store\SaveHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.save');
 
 $app->route('/mia-market/store/order/fetch/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class,\Mia\Market\Handler\Order\FetchByStoreHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.order.fetch');
 $app->route('/mia-market/store/order/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class, \Mia\Market\Handler\Order\ListByStoreHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_store.order.list');
