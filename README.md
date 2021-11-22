@@ -17,6 +17,7 @@ $app->route('/mia-market/product/add-review', [\Mia\Auth\Handler\AuthHandler::cl
 
 $app->route('/mia-market/product/questions/{id}', [\Mia\Market\Handler\Product\QuestionsHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.questions');
 $app->route('/mia-market/product/add-question', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Product\AddQuestionHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.add_question');
+$app->route('/mia-market/product/my-questions', [\Mia\Market\Handler\Product\MyQuestionsHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_product.my-questions');
 
 $app->route('/mia-market/cart/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_cart.list');
 $app->route('/mia-market/cart/remove/{id}/{child_id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Cart\RemoveHandler::class], ['GET', 'DELETE', 'OPTIONS', 'HEAD'], 'mia_cart.remove');
