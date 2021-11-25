@@ -118,6 +118,8 @@ class MiaOrder extends \Illuminate\Database\Eloquent\Model
     const STATUS_DELIVERED = 4;
     const STATUS_CLAIM = 5;
 
+    const PROVIDER_TESTING = 0;
+
     protected $table = 'mia_order';
     
     //protected $casts = ['data' => 'array'];
