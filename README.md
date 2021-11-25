@@ -37,4 +37,6 @@ $app->route('/mia-market/store/order/list', [\Mia\Auth\Handler\AuthHandler::clas
 
 $app->route('/mia-market/order/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Order\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_order.list');
 
+$app->route('/mia-market/payment/testing', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Payment\TestHandler::class], ['GET', 'POST', 'OPTIONS', 'HEAD'], 'mia_cart.payment.testing');
+
 ```

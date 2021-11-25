@@ -128,6 +128,9 @@ class TestHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
             $detail->quantity = $item->quantity;
             $detail->save();
         }
+
+        // Clean Cart
+        $this->cleanCart($user);
         
         // Devolvemos respuesta
         return new \Mia\Core\Diactoros\MiaJsonResponse(true);
@@ -145,5 +148,14 @@ class TestHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
             throw new MiaException('The cart is empty');
         }
         return $cart;
+    }
+    /**
+     *
+     * @param MIAUser $user
+     * @return void
+     */
+    protected function cleanCart(MIAUser $user)
+    {
+        MiaCart::where('user_id', $user->id)->delete();
     }
 }
