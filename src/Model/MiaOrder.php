@@ -2,6 +2,7 @@
 
 namespace Mia\Market\Model;
 
+use App\Model\MiaShipping;
 use Mia\Auth\Model\MIAUser;
 
 /**
@@ -156,5 +157,13 @@ class MiaOrder extends \Illuminate\Database\Eloquent\Model
         return $this->hasMany(MiaOrderDetail::class, 'order_id');
     }
 
-    
+    /**
+     * 
+     *
+     * @return HasMany
+     */
+    public function shippings()
+    {
+        return $this->hasMany(MiaShipping::class, 'shipping_id');
+    }
 }
