@@ -2,7 +2,6 @@
 
 namespace Mia\Market\Model;
 
-use App\Model\MiaShipping;
 use Mia\Auth\Model\MIAUser;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace Mia\Market\Model;
 
 /**
  * Description of Model
