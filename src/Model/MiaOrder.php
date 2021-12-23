@@ -163,6 +163,6 @@ class MiaOrder extends \Illuminate\Database\Eloquent\Model
      */
     public function shippings()
     {
-        return $this->hasMany(MiaShipping::class, 'shipping_id');
+        return $this->hasMany(MiaShipping::class, 'order_id');
     }
 }
