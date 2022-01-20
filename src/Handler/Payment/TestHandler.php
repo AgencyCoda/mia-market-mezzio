@@ -101,6 +101,10 @@ class TestHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
         $user = $this->getUser($request);
         // Search Cart
         $cart = $this->getCart($user);
+        // Verify if test error
+        if($this->getParam($request, 'error', '1') == 1){
+            throw new MiaException('Problem with payment');
+        }
         // For each products
         $amount = 0;
         foreach($cart as $item) {
