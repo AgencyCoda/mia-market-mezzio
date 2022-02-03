@@ -41,7 +41,7 @@ class MiaOrderRepository
      * @param [type] $from
      * @param [type] $to
      * @param [type] $status
-     * @return void
+     * @return array
      */
     public static function totals($from, $to, $status = MiaOrder::STATUS_PAYOUT)
     {
@@ -63,7 +63,7 @@ class MiaOrderRepository
      * @param [type] $from
      * @param [type] $to
      * @param [type] $status
-     * @return void
+     * @return array
      */
     public static function totalsByStoreInRange($storeId, $from, $to, $status = MiaOrder::STATUS_PAYOUT)
     {

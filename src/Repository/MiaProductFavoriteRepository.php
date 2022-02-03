@@ -41,7 +41,7 @@ class MiaProductFavoriteRepository
      * @param [type] $from
      * @param [type] $to
      * @param [type] $status
-     * @return void
+     * @return int
      */
     public static function totals($from, $to)
     {
