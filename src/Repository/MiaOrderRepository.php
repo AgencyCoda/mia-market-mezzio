@@ -56,4 +56,27 @@ class MiaOrderRepository
         }
         return [$row->total, $row->sum_total];
     }
+    /**
+     * Return total orders
+     *
+     * @param [type] $storeId
+     * @param [type] $from
+     * @param [type] $to
+     * @param [type] $status
+     * @return void
+     */
+    public static function totalsByStoreInRange($storeId, $from, $to, $status = MiaOrder::STATUS_PAYOUT)
+    {
+        $row = MiaOrder::
+                selectRaw('COUNT(*) as total_count')
+                ->selectRaw('SUM(total) as sum_total')
+                ->where('status', $status)
+                ->whereRaw('DATE(created_at) >= DATE(?) AND DATE(created_at) <= DATE(?)', [$from, $to])
+                ->where('store_id', $storeId)
+                ->first();
+        if($row === null||$row->total_count == null){
+            return [0, 0];
+        }
+        return [$row->total_count, $row->sum_total];
+    }
 }

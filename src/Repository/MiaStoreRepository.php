@@ -34,4 +34,16 @@ class MiaStoreRepository
 
         return $query->paginate($configure->getLimit(), ['*'], 'page', $configure->getPage());
     }
+
+    public static function totals($from, $to)
+    {
+        $row = \Mia\Market\Model\MiaStore::
+                selectRaw('COUNT(*) as total')
+                ->whereRaw('DATE(created_at) >= DATE(?) AND DATE(created_at) <= DATE(?)', [$from, $to])
+                ->first();
+        if($row === null||$row->total == null){
+            return 0;
+        }
+        return $row->total;
+    }
 }
