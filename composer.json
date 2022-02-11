@@ -15,6 +15,7 @@
         "agencycoda/mia-auth-mezzio": "dev-main",
         "agencycoda/mia-category-mezzio": "dev-main",
         "agencycoda/mia-location-mezzio": "dev-main",
+        "agencycoda/mia-mercadopago-mezzio": "dev-main",
         "paxha/laravel-recursive-relationships": "^1.1"
     },
     "autoload": {
@@ -45,6 +46,10 @@
         {
             "type": "git",
             "url": "https://github.com/agencycoda/mia-location-mezzio.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/agencycoda/mia-mercadopago-mezzio.git"
         }
     ]
 }
