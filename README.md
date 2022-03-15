@@ -35,6 +35,7 @@ $app->route('/mia-market/store/save', [\Mia\Auth\Handler\AuthHandler::class, new
 $app->route('/mia-market/store/order/fetch/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class,\Mia\Market\Handler\Order\FetchByStoreHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.order.fetch');
 $app->route('/mia-market/store/order/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class, \Mia\Market\Handler\Order\ListByStoreHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_store.order.list');
 $app->route('/mia-market/store/order/cancel/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class,\Mia\Market\Handler\Order\CancelByStoreHandler::class], ['GET', 'OPTIONS', 'HEAD'], 'mia_store.order.cancel');
+$app->route('/mia-market/store/order/change-status/{id}', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Middleware\StoreOnlyMiddleware::class,\Mia\Market\Handler\Order\ChangeStatusByStoreHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_store.order.cancel');
 
 $app->route('/mia-market/order/list', [\Mia\Auth\Handler\AuthHandler::class, \Mia\Market\Handler\Order\ListHandler::class], ['POST', 'OPTIONS', 'HEAD'], 'mia_order.list');
 
