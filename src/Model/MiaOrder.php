@@ -117,6 +117,7 @@ class MiaOrder extends \Illuminate\Database\Eloquent\Model
     const STATUS_SENDED = 3;
     const STATUS_DELIVERED = 4;
     const STATUS_CLAIM = 5;
+    const STATUS_CANCELED = 6;
 
     const PROVIDER_TESTING = 0;
 
