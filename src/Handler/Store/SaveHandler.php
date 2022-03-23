@@ -68,6 +68,8 @@ class SaveHandler extends \Mia\Auth\Request\MiaAuthRequestHandler
         $item->person_address = $this->getParam($request, 'person_address', '');
         $item->person_email = $this->getParam($request, 'person_email', '');
         $item->person_phone = $this->getParam($request, 'person_phone', '');
+        $item->latitude = $this->getParam($request, 'latitude', 0);
+        $item->longitude = $this->getParam($request, 'longitude', 0);
         
         try {
             $item->save();
