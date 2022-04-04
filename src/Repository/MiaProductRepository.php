@@ -26,6 +26,13 @@ class MiaProductRepository
             $configure->removeWith('has_favorite');
             $configure->addSelectRaw('COALESCE((SELECT 1 FROM mia_product_favorite WHERE mia_product_favorite.product_id = mia_product.id AND mia_product_favorite.user_id = ' . $user->id . '), 0) as is_favorite');
         }
+
+        // Verify if store is valid
+        if($configure->isExistWith('store_is_valid')){
+            $configure->removeWith('store_is_valid');
+            $configure->addJoin('mia_store', 'mia_store.id', 'mia_product.store_id');
+            $configure->addWhere('mia_store.deleted', '0');
+        }
         
         if(!$configure->hasOrder()){
             $query->orderByRaw('id DESC');
