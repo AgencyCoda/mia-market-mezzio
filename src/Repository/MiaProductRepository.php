@@ -17,7 +17,7 @@ class MiaProductRepository
      * @param \Mia\Database\Query\Configure $configure
      * @return \Illuminate\Pagination\Paginator
      */
-    public static function fetchByConfigure(\Mia\Database\Query\Configure $configure, MIAUser $user)
+    public static function fetchByConfigure(\Mia\Database\Query\Configure $configure, MIAUser $user = null)
     {
         $query = \Mia\Market\Model\MiaProduct::select('mia_product.*');
 
